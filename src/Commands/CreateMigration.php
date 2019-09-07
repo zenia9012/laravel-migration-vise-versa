@@ -25,7 +25,7 @@ class CreateMigration extends GeneratorCommand {
      *
      * @var string
      */
-    protected $signature = 'table:migration {name}';
+    protected $signature = 'table:migration {name} {--m : create model}';
 
     /**
      * The console command description.
@@ -54,6 +54,10 @@ class CreateMigration extends GeneratorCommand {
         $stub = $columnsConvector->replaceMigration($table);
 
         $this->files->put($path, $stub);
+
+        if ($this->option('m')) {
+            $this->call('table:model', ['name' => $table]);
+        }
 
         $this->info($this->type . ' created successfully.');
 
