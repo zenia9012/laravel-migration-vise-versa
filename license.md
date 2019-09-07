@@ -1,5 +1,5 @@
 # The license
 
-Copyright (c) author name <author email>
+Copyright (c) Yevhenii Riabyi <zenia9012@gmail.com>
 
-...Add your license text here...
+MIT
