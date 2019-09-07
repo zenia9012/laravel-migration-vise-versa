@@ -1,16 +1,17 @@
 {
-    "name": "yevhenii/laravelmigrationviseversa",
-    "description": ":description",
-    "license": "license",
+    "name": "yevhenii/laravel-migration-vise-versa",
+    "description": "Package for Laravel. This package adds possibility to create migration and model from an existing table",
+    "license": "MIT",
+    "version": "1.0",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Yevhenii Riabyi",
+            "email": "zenia9012@gmail.com",
+            "homepage": "https://www.facebook.com/Riabyi"
         }
     ],
-    "homepage": "https://github.com/yevhenii/laravelmigrationviseversa",
-    "keywords": ["Laravel", "LaravelMigrationViseVersa"],
+    "homepage": "https://github.com/zenia9012/laravel-migration-vise-versa",
+    "keywords": ["Laravel", "Laravel Migration", "Migration", "Model", "Laravel Model"],
     "require-dev": {
         "phpunit/phpunit": "~7.0",
         "mockery/mockery": "^1.1",
