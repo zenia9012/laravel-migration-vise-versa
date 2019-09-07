@@ -26,7 +26,7 @@ class CreateModel extends GeneratorCommand {
      *
      * @var string
      */
-    protected $signature = 'table:model {name} {--except=id : except column}';
+    protected $signature = 'table:model {name} {--except=id : except column} {--m : create migration}';
 
     /**
      * The console command description.
@@ -58,7 +58,11 @@ class CreateModel extends GeneratorCommand {
 
         $this->files->put($path, $stub);
 
-        $this->info($this->type.' created successfully.');
+        if ($this->option('m')) {
+            $this->call('table:migration', ['name' => $table]);
+        }
+
+        $this->info($this->type . ' created successfully.');
 
     }
 
@@ -70,26 +74,26 @@ class CreateModel extends GeneratorCommand {
     /**
      * Get the destination class path.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
      */
     protected function getPath($name)
     {
         $fileName = 'Model/' . Str::ucfirst(Str::singular($name));
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $fileName).'.php';
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $fileName) . '.php';
     }
 
     /**
      * Replace the class name for the given stub.
      *
-     * @param  string  $stub
-     * @param  string  $name
+     * @param string $stub
+     * @param string $name
      * @return string
      */
     protected function replaceClass($stub, $name)
     {
-        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $class = str_replace($this->getNamespace($name) . '\\', '', $name);
 
         $class = Str::ucfirst(Str::singular($class));
 
